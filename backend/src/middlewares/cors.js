@@ -2,7 +2,7 @@ import cors from "cors";
 
 const ACCEPTED_ORIGIN = [
   "http://localhost:5173",
-  "https://movies-finder-liart.vercel.app/",
+  "https://movies-finder-f61zf3df7-ar-06s-projects.vercel.app",
 ];
 
 export const corsMiddleware = ({ acceptedOrigin = ACCEPTED_ORIGIN } = {}) =>
