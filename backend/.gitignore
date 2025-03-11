@@ -1,0 +1,19 @@
+# Node.js
+node_modules/
+package-lock.json
+
+# Entornos
+.env
+
+# Docker
+docker-data/
+*.tar
+
+# Archivos de logs y caché
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+uploads
