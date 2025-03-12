@@ -24,19 +24,39 @@ export const MoviesProvider = ({ children }) => {
   useEffect(() => {
     getMoviesRequest()
       .then((res) => {
-        console.log("API Response:", res.data); // 👀 Verifica qué devuelve la API
-        setMovies(Array.isArray(res.data) ? res.data : []);
+        console.log("🎬 API Response:", res.data); // 👀 Verifica la respuesta de la API
+        if (Array.isArray(res.data)) {
+          setMovies(res.data);
+        } else {
+          console.error("❌ La API no devolvió un array:", res.data);
+          setMovies([]);
+        }
       })
-      .catch((err) => console.error("Error fetching data:", err));
+      .catch((err) => {
+        console.error(
+          "🚨 Error fetching movies:",
+          err.response ? err.response.data : err.message
+        );
+      });
   }, []);
 
   useEffect(() => {
     getMoviesByUserRequest()
       .then((res) => {
-        console.log("API Response:", res.data); // 👀 Verifica qué devuelve la API
-        setMoviesUser(Array.isArray(res.data) ? res.data : []);
+        console.log("👤 API Response de User:", res.data); // 👀 Verifica la respuesta de la API
+        if (Array.isArray(res.data)) {
+          setMoviesUser(res.data);
+        } else {
+          console.error("❌ La API de usuario no devolvió un array:", res.data);
+          setMoviesUser([]);
+        }
       })
-      .catch((err) => console.error("Error fetching data:", err));
+      .catch((err) => {
+        console.error(
+          "🚨 Error fetching user movies:",
+          err.response ? err.response.data : err.message
+        );
+      });
   }, []);
 
   useEffect(() => {
