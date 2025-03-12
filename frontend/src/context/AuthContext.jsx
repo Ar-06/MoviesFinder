@@ -72,8 +72,7 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     async function checkLogin() {
       try {
-        
-        const res = await verifyTokenRequest(); 
+        const res = await verifyTokenRequest();
 
         if (!res.data) {
           setIsAuthenticated(false);
@@ -83,9 +82,10 @@ export const AuthProvider = ({ children }) => {
           setUser(res.data);
         }
       } catch (error) {
-        console.error("Error verificando login:", error);
-        setIsAuthenticated(false);
-        setUser(null);
+        if (error.response && error.response.stats === 401) {
+          setIsAuthenticated(false);
+          setUser(null);
+        }
       } finally {
         setLoading(false);
       }
