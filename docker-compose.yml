@@ -7,12 +7,3 @@ services:
       - "3000:3000"
     env_file:
       - ./backend/.env
-    
-  frontend:
-    build: ./frontend
-    ports:
-      - "5173:80"
-    env_file:
-      - ./frontend/.env  
-    depends_on:
-      - backend
