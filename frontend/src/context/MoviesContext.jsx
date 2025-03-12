@@ -4,6 +4,7 @@ import {
   deleteMoviesRequest,
   getMoviesByUserRequest,
 } from "../api/movies.js";
+import { useAuth } from "./AuthContext.jsx";
 
 const MoviesContext = createContext();
 
@@ -20,6 +21,7 @@ export const MoviesProvider = ({ children }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [moviesUser, setMoviesUser] = useState([]);
   const [filterMovies, setFilterMovies] = useState([]);
+  const { isAuthenticated } = useAuth();
 
   useEffect(() => {
     getMoviesRequest()
@@ -41,23 +43,28 @@ export const MoviesProvider = ({ children }) => {
   }, []);
 
   useEffect(() => {
-    getMoviesByUserRequest()
-      .then((res) => {
-        console.log("👤 API Response de User:", res.data); // 👀 Verifica la respuesta de la API
-        if (Array.isArray(res.data)) {
-          setMoviesUser(res.data);
-        } else {
-          console.error("❌ La API de usuario no devolvió un array:", res.data);
-          setMoviesUser([]);
-        }
-      })
-      .catch((err) => {
-        console.error(
-          "🚨 Error fetching user movies:",
-          err.response ? err.response.data : err.message
-        );
-      });
-  }, []);
+    if (isAuthenticated) {
+      getMoviesByUserRequest()
+        .then((res) => {
+          console.log("👤 API Response de User:", res.data); // 👀 Verifica la respuesta de la API
+          if (Array.isArray(res.data)) {
+            setMoviesUser(res.data);
+          } else {
+            console.error(
+              "❌ La API de usuario no devolvió un array:",
+              res.data
+            );
+            setMoviesUser([]);
+          }
+        })
+        .catch((err) => {
+          console.error(
+            "🚨 Error fetching user movies:",
+            err.response ? err.response.data : err.message
+          );
+        });
+    }
+  }, [isAuthenticated]);
 
   useEffect(() => {
     setFilterMovies(movies);
