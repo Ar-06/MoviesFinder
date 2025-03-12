@@ -32,8 +32,11 @@ export const MoviesProvider = ({ children }) => {
 
   useEffect(() => {
     getMoviesByUserRequest()
-      .then((res) => setMoviesUser(res.data))
-      .catch((err) => console.error(err));
+      .then((res) => {
+        console.log("API Response:", res.data); // 👀 Verifica qué devuelve la API
+        setMoviesUser(Array.isArray(res.data) ? res.data : []);
+      })
+      .catch((err) => console.error("Error fetching data:", err));
   }, []);
 
   useEffect(() => {
