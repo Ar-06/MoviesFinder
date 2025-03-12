@@ -14,6 +14,14 @@ export const createMovie = async (req, res) => {
     const rating = Number(req.body.rating);
     const year = Number(req.body.year);
 
+    const movieFound = await Movie.findOne({ title });
+
+    if (movieFound) {
+      return res
+        .status(400)
+        .json({ message: "La película ya se encuentra registrada" });
+    }
+
     const newMovie = new Movie({
       title,
       rating,
