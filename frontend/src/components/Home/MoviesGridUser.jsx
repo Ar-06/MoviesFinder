@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Edit, Trash2 } from "lucide-react";
+import { Trash2 } from "lucide-react";
 import { toast } from "react-toastify";
 import { useMovies } from "../../context/MoviesContext";
 import { MovieSkeleton } from "../Movie/SkeletonMovie";
@@ -50,9 +50,6 @@ export const MoviesGridUser = () => {
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-4">
                   <div className="flex justify-end space-x-2">
-                    <button className="p-1.5 bg-white/90 rounded-full text-gray-900 hover:bg-white transition-colors cursor-pointer">
-                      <Edit className="h-4 w-4" />
-                    </button>
                     <button
                       className="p-1.5 bg-white/90 rounded-full text-gray-900 hover:bg-white transition-colors cursor-pointer"
                       onClick={() => handleDeleteMovie(movie._id)}
