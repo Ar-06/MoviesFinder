@@ -88,19 +88,26 @@ export const logout = (req, res) => {
 };
 
 export const profile = async (req, res) => {
-  const userFound = await User.findById(req.user.id);
+  try {
+    if (!req.user) {
+      return res.status(401).json({ msg: "No autorizado" });
+    }
 
-  if (!userFound) {
-    return res.status(404).json({ msg: "User not found" });
+    const userFound = await User.findById(req.user.id);
+    if (!userFound) {
+      return res.status(404).json({ msg: "User not found" });
+    }
+
+    return res.json({
+      id: userFound._id,
+      username: userFound.username,
+      email: userFound.email,
+    });
+  } catch (error) {
+    return res
+      .status(500)
+      .json({ msg: "Error en el servidor", error: error.message });
   }
-
-  return res.json({
-    id: userFound._id,
-    username: userFound.username,
-    email: userFound.email,
-  });
-
-  res.send("profile");
 };
 
 export const verifyToken = async (req, res) => {
