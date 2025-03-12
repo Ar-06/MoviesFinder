@@ -39,6 +39,7 @@ export const AuthProvider = ({ children }) => {
       const res = await loginRequest(user);
       setUser(res.data);
       setIsAuthenticated(true);
+      console.log("Token en cookies", document.cookie);
     } catch (error) {
       setErrors(error.response.data);
     }
@@ -50,7 +51,7 @@ export const AuthProvider = ({ children }) => {
       Cookies.remove("token");
       setUser(null);
       setIsAuthenticated(false);
-      setRedirectAfterLogout(true); 
+      setRedirectAfterLogout(true);
     } catch (error) {
       return Promise.reject(error);
     }
