@@ -64,7 +64,8 @@ export const login = async (req, res) => {
     res.cookie("token", token, {
       httpOnly: true,
       secure: true,
-      sameSite: "none",
+      sameSite: "None",
+      maxAge: 7 * 24 * 60 * 60 * 1000,
     });
 
     res.status(200).json({
@@ -103,20 +104,33 @@ export const profile = async (req, res) => {
 };
 
 export const verifyToken = async (req, res) => {
-  const { token } = req.cookies;
+  try {
+    const token = req.cookies.token; // Asegurar que se obtiene la cookie correctamente
 
-  if (!token) return res.status(401).json({ message: "No autorizado" });
+    if (!token) {
+      return res
+        .status(401)
+        .json({ message: "No autorizado, token no encontrado" });
+    }
 
-  jwt.verify(token, JWT_SECRET, async (err, user) => {
-    if (err) return res.status(401).json({ message: "No autorizado " });
+    jwt.verify(token, JWT_SECRET, async (err, decoded) => {
+      if (err) {
+        return res.status(401).json({ message: "Token inválido o expirado" });
+      }
 
-    const userFound = await User.findById(user.id);
-    if (!userFound) return res.status(401).json({ message: "No autorizado" });
+      const userFound = await User.findById(decoded.id);
+      if (!userFound) {
+        return res.status(401).json({ message: "Usuario no encontrado" });
+      }
 
-    return res.json({
-      id: userFound._id,
-      username: userFound.username,
-      email: userFound.email,
+      return res.json({
+        id: userFound._id,
+        username: userFound.username,
+        email: userFound.email,
+      });
     });
-  });
+  } catch (error) {
+    console.error("Error en verifyToken:", error);
+    res.status(500).json({ message: "Error interno del servidor" });
+  }
 };
