@@ -82,7 +82,7 @@ export const AuthProvider = ({ children }) => {
           setUser(res.data);
         }
       } catch (error) {
-        if (error.response && error.response.stats === 401) {
+        if (error.response && error.response.status === 401) {
           setIsAuthenticated(false);
           setUser(null);
         }
