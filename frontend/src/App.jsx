@@ -34,7 +34,7 @@ function App() {
         pauseOnFocusLoss
         draggable
         pauseOnHover
-        theme="dark" // Cambia a light, dark o colored
+        theme="dark" 
       />
     </AuthProvider>
   );
