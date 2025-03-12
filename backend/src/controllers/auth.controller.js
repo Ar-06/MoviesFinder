@@ -112,7 +112,7 @@ export const profile = async (req, res) => {
 
 export const verifyToken = async (req, res) => {
   try {
-    const token = req.cookies.token; // Asegurar que se obtiene la cookie correctamente
+    const token = req.cookies.token;
 
     if (!token) {
       return res

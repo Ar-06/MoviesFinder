@@ -26,11 +26,9 @@ export const MoviesProvider = ({ children }) => {
   useEffect(() => {
     getMoviesRequest()
       .then((res) => {
-        console.log("🎬 API Response:", res.data); // 👀 Verifica la respuesta de la API
         if (Array.isArray(res.data)) {
           setMovies(res.data);
         } else {
-          console.error("❌ La API no devolvió un array:", res.data);
           setMovies([]);
         }
       })
@@ -46,14 +44,9 @@ export const MoviesProvider = ({ children }) => {
     if (isAuthenticated) {
       getMoviesByUserRequest()
         .then((res) => {
-          console.log("👤 API Response de User:", res.data); // 👀 Verifica la respuesta de la API
           if (Array.isArray(res.data)) {
             setMoviesUser(res.data);
           } else {
-            console.error(
-              "❌ La API de usuario no devolvió un array:",
-              res.data
-            );
             setMoviesUser([]);
           }
         })
