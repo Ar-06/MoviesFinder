@@ -75,10 +75,10 @@ export const Navbar = () => {
                 </div>
               </>
             ) : (
-              <>
+              <div className="flex flex-wrap justify-center sm:justify-start gap-x-2 gap-y-2">
                 <Link
                   to="/auth"
-                  className="flex items-center mx-2 px-3 py-1 rounded-md text-sm font-medium text-gray-900 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
+                  className="flex items-center px-3 py-1 rounded-md text-xs sm:text-sm font-medium text-gray-900 border border-gray-300 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
                 >
                   <LogIn className="h-4 w-4 mr-1" />
                   <span>Iniciar Sesión</span>
@@ -86,12 +86,12 @@ export const Navbar = () => {
 
                 <Link
                   to="/auth"
-                  className="flex items-center mx-2 px-3 py-1 rounded-md text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
+                  className="flex items-center px-3 py-1 rounded-md text-xs sm:text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
                 >
                   <UserPlus className="h-4 w-4 mr-1" />
                   <span>Registrarse</span>
                 </Link>
-              </>
+              </div>
             )}
           </div>
         </div>
