@@ -20,7 +20,7 @@ export const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex-shrink-0 flex items-center">
-            <h1 className="text-xl font-bold text-gray-900">FilmFinder</h1>
+            <h1 className="text-xl font-bold text-gray-900">MoviesFinder</h1>
           </div>
 
           <div className="flex-1 flex items-center justify-center px-2 lg:ml-6 lg:justify-start">
