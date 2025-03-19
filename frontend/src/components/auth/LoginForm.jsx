@@ -7,6 +7,7 @@ import { toast } from "react-toastify";
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [loading, setLoading] = useState(false);
   const {
     register,
     handleSubmit,
@@ -28,11 +29,14 @@ export const LoginForm = () => {
       loginErrors.forEach((error) => {
         toast.error(error);
       });
+      setLoading(false);
     }
   }, [loginErrors]);
 
   const onSubmit = handleSubmit(async (values) => {
-    signin(values);
+    setLoading(true);
+    await signin(values);
+    setLoading(false);
   });
 
   return (
@@ -108,7 +112,11 @@ export const LoginForm = () => {
             dark:hover:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-offset-2
             focus:ring-gray-900 dark:focus:ring-white cursor-pointer transition"
         >
-          Iniciar Sesión
+          {loading ? (
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            "Iniciar Sesión"
+          )}
         </button>
       </div>
     </form>

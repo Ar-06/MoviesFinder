@@ -11,6 +11,7 @@ export const MovieFormPage = ({ onClose }) => {
   const [rating, setRating] = useState("");
   const [image, setImage] = useState(null);
   const [previewUrl, setPreviewUrl] = useState(null);
+  const [loading, setLoading] = useState(false);
   const { addNewMovie } = useMovies();
 
   const handleImageChange = (e) => {
@@ -24,6 +25,7 @@ export const MovieFormPage = ({ onClose }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("title", title);
@@ -43,6 +45,8 @@ export const MovieFormPage = ({ onClose }) => {
     } catch (error) {
       toast.error("Error al agregar película");
       console.error(error);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -160,7 +164,11 @@ export const MovieFormPage = ({ onClose }) => {
           type="submit"
           className="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-gray-900 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900 cursor-pointer"
         >
-          Guardar
+          {loading ? (
+            <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+          ) : (
+            "Guardar"
+          )}
         </button>
       </div>
     </form>
