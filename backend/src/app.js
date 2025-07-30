@@ -17,3 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/auth", RouterAuth);
 app.use("/movies", RouterMovies);
+
+app.use("/", (req, res) => {
+  res.send("Servidor MoviesFinder corriendo");
+});
