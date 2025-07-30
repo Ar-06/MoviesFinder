@@ -1,14 +1,14 @@
 import express from "express";
 import morgan from "morgan";
 import cookieParser from "cookie-parser";
-import cors from "cors";
+import { corsMiddleware } from "./middlewares/cors.js";
 import { RouterAuth } from "./routes/auth.routes.js";
 import { RouterMovies } from "./routes/movies.routes.js";
 
 export const app = express();
 
 app.disable("x-powered-by");
-app.use(cors({ origin: "*" }));
+app.use(corsMiddleware());
 app.use(morgan("dev"));
 app.use(express.json());
 app.use(cookieParser());
