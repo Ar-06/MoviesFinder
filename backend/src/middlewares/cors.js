@@ -4,6 +4,7 @@ const ACCEPTED_ORIGIN = [
   "http://localhost:5173",
   "https://movies-finder-five.vercel.app",
   "https://moviesfinder-production.up.railway.app",
+  "https://moviesfinder-rjgp.onrender.com",
 ];
 
 export const corsMiddleware = ({ acceptedOrigin = ACCEPTED_ORIGIN } = {}) =>
