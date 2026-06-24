@@ -13,7 +13,6 @@ Una plataforma web donde los usuarios pueden compartir sus películas favoritas 
 - [Stack Tecnológico](#stack-tecnológico-)
 - [Instalación](#instalación-)
 - [Uso](#uso-)
-- [Estructura del Proyecto](#estructura-del-proyecto-)
 - [Referencia de la API](#referencia-de-la-api-)
 - [Enlaces Importantes](#enlaces-importantes-)
 
@@ -100,39 +99,6 @@ Acciones Clave:
 - **Eliminar Película:** En tu página de perfil, puedes eliminar tus recomendaciones de películas.
 - **Cerrar Sesión:** Cierra sesión desde tu cuenta a través de la página de perfil o el menú desplegable.
 
-### Estructura del proyecto 📁
-   ```text
-   MoviesFinder/
-   ├── backend/
-   │   ├── src/
-   │   │   ├── controllers/
-   │   │   ├── db/
-   │   │   ├── libs/
-   │   │   ├── middlewares/
-   │   │   ├── models/
-   │   │   ├── routes/
-   │   │   ├── schemas/
-   │   │   └── app.js
-   │   │   └── index.js
-   │   ├── Dockerfile
-   │   ├── .env
-   │   └── package.json
-   ├── frontend/
-   │   ├── public/
-   │   ├── src/
-   │   │   ├── api/
-   │   │   ├── components/
-   │   │   ├── context/
-   │   │   ├── pages/
-   │   │   ├── App.jsx
-   │   │   ├── main.jsx
-   │   │   └── index.css
-   │   ├── index.html
-   │   ├── package.json
-   │   ├── vite.config.js
-   │   ├── .env
-   │   └── vercel.json
-   └── docker-compose.yml
 
 ### Referencia de la API 🌐
 **Rutas de Autenticación**
