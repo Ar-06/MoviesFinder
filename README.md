@@ -101,37 +101,38 @@ Acciones Clave:
 - **Cerrar Sesión:** Cierra sesión desde tu cuenta a través de la página de perfil o el menú desplegable.
 
 ### Estructura del proyecto 📁
-MoviesFinder/
-├── backend/
-│   ├── src/
-│   │   ├── controllers/
-│   │   ├── db/
-│   │   ├── libs/
-│   │   ├── middlewares/
-│   │   ├── models/
-│   │   ├── routes/
-│   │   ├── schemas/
-│   │   └── app.js
-│   │   └── index.js
-│   ├── Dockerfile
-│   ├── .env
-│   ├── package.json
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── api/
-│   │   ├── components/
-│   │   ├── context/
-│   │   ├── pages/
-│   │   ├── App.jsx
-│   │   ├── main.jsx
-│   │   └── index.css
-│   ├── index.html
-│   ├── package.json
-│   ├── vite.config.js
-│   ├── .env
-│   └── vercel.json
-└── docker-compose.yml
+      ```text
+      MoviesFinder/
+      ├── backend/
+      │   ├── src/
+      │   │   ├── controllers/
+      │   │   ├── db/
+      │   │   ├── libs/
+      │   │   ├── middlewares/
+      │   │   ├── models/
+      │   │   ├── routes/
+      │   │   ├── schemas/
+      │   │   └── app.js
+      │   │   └── index.js
+      │   ├── Dockerfile
+      │   ├── .env
+      │   └── package.json
+      ├── frontend/
+      │   ├── public/
+      │   ├── src/
+      │   │   ├── api/
+      │   │   ├── components/
+      │   │   ├── context/
+      │   │   ├── pages/
+      │   │   ├── App.jsx
+      │   │   ├── main.jsx
+      │   │   └── index.css
+      │   ├── index.html
+      │   ├── package.json
+      │   ├── vite.config.js
+      │   ├── .env
+      │   └── vercel.json
+      └── docker-compose.yml
 
 ### Referencia de la API 🌐
 **Rutas de Autenticación**
