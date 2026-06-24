@@ -15,8 +15,6 @@ Una plataforma web donde los usuarios pueden compartir sus películas favoritas 
 - [Uso](#uso-)
 - [Estructura del Proyecto](#estructura-del-proyecto-)
 - [Referencia de la API](#referencia-de-la-api-)
-- [Contribuciones](#contribuciones-)
-- [Licencia](#licencia-)
 - [Enlaces Importantes](#enlaces-importantes-)
 
 ---
