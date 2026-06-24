@@ -65,3 +65,25 @@ Este proyecto consta de un backend y un frontend. Ambos deben ser configurados.
    ```bash
    git clone [https://github.com/Ar-06/MoviesFinder.git](https://github.com/Ar-06/MoviesFinder.git)
    cd MoviesFinder
+2. **Navegar al directorio del backend e instalar las dependencias:**
+    ```bash
+    cd backend
+    npm install
+3. **Crear un archivo .env en el directorio backend y configurar tus variables de entorno:
+    ```bash
+    PORT=3000
+    JWT_SECRET=tu_clave_super_secreta
+    MONGO_URI=mongodb://localhost:27017/moviesfinder
+    CLOUDINARY_CLOUD_NAME=tu_cloudinary_cloud_name
+    CLOUDINARY_API_KEY=tu_cloudinary_api_key
+    CLOUDINARY_API_SECRET=tu_cloudinary_api_secret
+4. **Ejecutar el servidor backend:**
+   ```bash
+   npm run dev
+### Configuración del Frontend
+1. **Navegar al directorio del frontend e instalar las dependencias:**
+  ```bash
+   cd ../frontend
+   npm install
+2. **Navegar al directorio del backend e instalar las dependencias:**
+4. **Ejecutar el servidor backend:**
