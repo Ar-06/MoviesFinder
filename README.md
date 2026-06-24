@@ -82,8 +82,76 @@ Este proyecto consta de un backend y un frontend. Ambos deben ser configurados.
    npm run dev
 ### Configuración del Frontend
 1. **Navegar al directorio del frontend e instalar las dependencias:**
-  ```bash
-   cd ../frontend
-   npm install
-2. **Navegar al directorio del backend e instalar las dependencias:**
-4. **Ejecutar el servidor backend:**
+     ```bash
+      cd ../frontend
+      npm install
+2. **Crear un archivo .env en el directorio frontend y configurar tus variables de entorno:**
+     ```bash
+      VITE_API_URL=http://localhost:3000
+3. **Ejecutar el servidor de desarrollo del frontend:**
+    ```bash
+    npm run dev
+### Uso 🚀
+Una vez que tanto el frontend como el backend estén corriendo, puedes acceder a la aplicación MoviesFinder en tu navegador (normalmente en http://localhost:5173).
+Acciones Clave:
+
+- **Registro/Login:** Navega a la página de autenticación para crear una cuenta o iniciar sesión con credenciales existentes.
+- **Agregar Película:** Después de iniciar sesión, haz clic en el botón "Agregar" en la barra de navegación para abrir un modal y añadir una nueva recomendación. Puedes subir una imagen, ingresar el título,  año y calificación.
+- **Ver Películas:** La página de inicio muestra todas las películas recomendadas. Puedes buscar películas usando la barra de búsqueda.
+- **Ver Tus Películas:** Navega a tu página de perfil para ver todas las películas que has recomendado.
+- **Eliminar Película:** En tu página de perfil, puedes eliminar tus recomendaciones de películas.
+- **Cerrar Sesión:** Cierra sesión desde tu cuenta a través de la página de perfil o el menú desplegable.
+
+### Estructura del proyecto 📁
+MoviesFinder/
+├── backend/
+│   ├── src/
+│   │   ├── controllers/
+│   │   ├── db/
+│   │   ├── libs/
+│   │   ├── middlewares/
+│   │   ├── models/
+│   │   ├── routes/
+│   │   ├── schemas/
+│   │   └── app.js
+│   │   └── index.js
+│   ├── Dockerfile
+│   ├── .env
+│   ├── package.json
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── api/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── pages/
+│   │   ├── App.jsx
+│   │   ├── main.jsx
+│   │   └── index.css
+│   ├── index.html
+│   ├── package.json
+│   ├── vite.config.js
+│   ├── .env
+│   └── vercel.json
+└── docker-compose.yml
+
+### Referencia de la API 🌐
+**Rutas de Autenticación**
+
+- POST /auth/register : Registrar un nuevo usuario.
+- POST /auth/login : Iniciar sesión de un usuario.
+- POST /auth/logout : Cerrar sesión del usuario actual.
+- GET /auth/profile : Obtener el perfil del usuario autenticado (requiere token).
+- GET /auth/verify : Verificar el token del usuario.
+
+
+**Rutas de Películas**
+- POST /movies/register : Registrar una nueva recomendación de película (requiere token).
+- GET /movies : Obtener todas las películas.
+- GET /me : Obtener las películas recomendadas por el usuario autenticado (requiere token).
+- DELETE /:id : Eliminar una película específica por ID (requiere token).
+
+### Enlances Importantes 🔗
+
+- Demo en Vivo (Frontend): MoviesFinder Frontend en Vercel
+- API en Producción (Backend): MoviesFinder API en Render (Si inicia, espere unos segundos para que despierte el servidor).
